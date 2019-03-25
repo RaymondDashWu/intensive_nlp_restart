@@ -66,7 +66,7 @@ async def analyze(request):
     # add [0] to get pos/neg
     prediction = learn.predict(img)
     print("prediction:", prediction)
-    return JSONResponse({'result': str(prediction)})
+    return JSONResponse({'result': prediction})
 
 if __name__ == '__main__':
     if 'serve' in sys.argv: uvicorn.run(app=app, host='0.0.0.0', port=5042)
