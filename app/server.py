@@ -62,7 +62,8 @@ async def analyze(request):
     img = StringIO(data["textField"])
     print("img:", img)
     # prediction = learn.predict(img)[0]
-    prediction = learn.predict(img)[0]
+    # add [0] to get pos/neg
+    prediction = learn.predict(img)
     print("prediction:", prediction)
     return JSONResponse({'result': str(prediction)})
 
