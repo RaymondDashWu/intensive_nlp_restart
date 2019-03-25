@@ -3,7 +3,7 @@ from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 import uvicorn, aiohttp, asyncio
-from io import StringIO
+from io import StringIO, BytesIO
 
 from fastai import *
 # from fastai.vision import *
@@ -59,7 +59,7 @@ async def analyze(request):
     # img_bytes = await (data['file'].read())
     # took out img_bytes
     # img = open_image(BytesIO(img_bytes))
-    img = StringIO(data["textField"])
+    img = BytesIO(data["textField"])
     print("img:", img)
     # prediction = learn.predict(img)[0]
     prediction = learn.predict(img)
