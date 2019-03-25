@@ -34,14 +34,13 @@ function analyze() {
         // success: onSuccess,
         dataType: "json"
     });
-    console.log("type:", type)
     console.log("url:", url)
     console.log("data:", data)
     console.log("dataType:", dataType)
     console.log("fileData:", fileData);
     console.log("uploadFiles", uploadFiles);
     console.log("uploadFiles.value:", uploadFiles.value);
-    return false;
+    // return false;
 
 
     // xhr.open('POST', `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`, true);
