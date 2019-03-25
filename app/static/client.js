@@ -22,11 +22,11 @@ function analyze() {
 
     el('analyze-button').innerHTML = 'Analyzing...';
     // var xhr = new XMLHttpRequest();
-    var loc = window.location
-    var url = `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`
+    var loc = window.location;
+    var url = `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`;
     var data = {
         uploadFiles: uploadFiles
-    }
+    };
     $.ajax({
         type: "POST",
         url: url,
