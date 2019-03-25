@@ -37,9 +37,9 @@ function analyze() {
     console.log("url:", url)
     console.log("data:", data)
     // console.log("dataType:", dataType)
-    console.log("fileData:", fileData);
-    console.log("uploadFiles", uploadFiles);
-    console.log("uploadFiles.value:", uploadFiles.value);
+    // console.log("fileData:", fileData);
+    // console.log("uploadFiles", uploadFiles);
+    // console.log("uploadFiles.value:", uploadFiles.value);
     // return false;
 
 
