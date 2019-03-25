@@ -35,7 +35,7 @@ function analyze() {
     }
 
     var fileData = new FormData();
-    fileData.append('file', uploadFiles.value);
+    fileData.append('textField', uploadFiles.value);
     console.log("fileData:", fileData);
     console.log("uploadFiles:", uploadFiles);
     xhr.send(fileData);
