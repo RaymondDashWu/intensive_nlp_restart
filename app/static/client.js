@@ -18,31 +18,45 @@ function analyze() {
     var uploadFiles = el('reviewText').value;
     // var uploadFiles = el('file-input').files;
 
-    // if (uploadFiles.length != 1) alert('Please select 1 file to analyze!');
+    if (uploadFiles.length == 0) alert('Please enter some feedback.');
 
     el('analyze-button').innerHTML = 'Analyzing...';
-    var xhr = new XMLHttpRequest();
+    // var xhr = new XMLHttpRequest();
     var loc = window.location
-    xhr.open('POST', `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onerror = function() {alert (xhr.responseText);}
-    xhr.onload = function(e) {
-        if (this.readyState === 4) {
-            console.log("e.target:", e.target)
-            var response = JSON.parse(e.target.responseText);
-            el('result-label').innerHTML = `Result = ${response['result']}`;
-        }
-        el('analyze-button').innerHTML = 'Analyze';
+    var url = `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`
+    var data = {
+        uploadFiles: uploadFiles
     }
+    $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        // success: onSuccess,
+        dataType: "json"
+      });
+      return false;
 
-    var fileData = {
-        "textField": uploadFiles.value
-    };
+
+    // xhr.open('POST', `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`, true);
+    // xhr.setRequestHeader("Content-Type", "application/json");
+    // xhr.onerror = function() {alert (xhr.responseText);}
+    // xhr.onload = function(e) {
+    //     if (this.readyState === 4) {
+    //         console.log("e.target:", e.target)
+    //         var response = JSON.parse(e.target.responseText);
+    //         el('result-label').innerHTML = `Result = ${response['result']}`;
+    //     }
+    //     el('analyze-button').innerHTML = 'Analyze';
+    // }
+
+    // var fileData = {
+    //     "textField": uploadFiles.value
+    // };
     
-    // fileData.append('textField', uploadFiles.value);
-    console.log("fileData:", fileData);
-    console.log("uploadFiles", uploadFiles);
-    console.log("uploadFiles.value:", uploadFiles.value);
-    xhr.send(JSON.stringify(fileData));
+    // // fileData.append('textField', uploadFiles.value);
+    // console.log("fileData:", fileData);
+    // console.log("uploadFiles", uploadFiles);
+    // console.log("uploadFiles.value:", uploadFiles.value);
+    // xhr.send(JSON.stringify(fileData));
 }
 
