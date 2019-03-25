@@ -42,7 +42,7 @@ async def setup_learner():
 
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
-learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
+learn = loop.run_until_complete(asyncio.gather(*tasks))
 loop.close()
 
 @app.route('/')
@@ -53,7 +53,8 @@ def index(request):
 # @app.route('/analyze', methods=['GET'])
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
-    data = await request.json()
+    data = await request.form()
+    # data = await request.json()
     #data = await request.args['data']
     print("data:", data)
     # img_bytes = await (data['file'].read())
