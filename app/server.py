@@ -9,9 +9,9 @@ from fastai import *
 # from fastai.vision import *
 from fastai.text import *
 
-export_file_url = 'https://www.dropbox.com/s/1mi236a0p2v0lht/fourth.pkl?dl=1'
+export_file_url = 'https://www.dropbox.com/s/xhnvw0axn6xjbk9/export.pkl?dl=1'
 # export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_name = 'fourth.pkl'
+export_file_name = 'export.pkl'
 
 classes = ['neg', 'pos']
 path = Path(__file__).parent
@@ -59,7 +59,9 @@ async def analyze(request):
     # img_bytes = await (data['file'].read())
     # took out img_bytes
     # img = open_image(BytesIO(img_bytes))
-    img = StringIO(data["textField"])
+    img = StringIO(data)
+
+    # img = StringIO(data["textField"])
     # prediction = learn.predict(img)[0]
     prediction = learn.predict(img)
     print("prediction:", prediction)
