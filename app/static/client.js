@@ -39,10 +39,9 @@ function analyze() {
         "textField": uploadFiles.value
     };
     
-    console.log(fileData);
     // fileData.append('textField', uploadFiles.value);
-    // console.log("fileData:", fileData);
-    // console.log("uploadFiles:", uploadFiles);
+    console.log("fileData:", fileData);
+    console.log("uploadFiles.value:", uploadFiles.value);
     xhr.send(JSON.stringify(fileData));
 }
 

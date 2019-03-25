@@ -59,9 +59,7 @@ async def analyze(request):
     # img_bytes = await (data['file'].read())
     # took out img_bytes
     # img = open_image(BytesIO(img_bytes))
-    img = StringIO(data)
-
-    # img = StringIO(data["textField"])
+    img = StringIO(data["textField"])
     # prediction = learn.predict(img)[0]
     prediction = learn.predict(img)
     print("prediction:", prediction)
