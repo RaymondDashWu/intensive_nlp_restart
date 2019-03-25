@@ -32,11 +32,11 @@ function analyze() {
         url: url,
         data: data,
         // success: onSuccess,
-        dataType: "json"
+        dataType: "json",
     });
     console.log("url:", url)
     console.log("data:", data)
-    console.log("dataType:", dataType)
+    // console.log("dataType:", dataType)
     console.log("fileData:", fileData);
     console.log("uploadFiles", uploadFiles);
     console.log("uploadFiles.value:", uploadFiles.value);
