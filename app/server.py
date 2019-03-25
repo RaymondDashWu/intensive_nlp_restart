@@ -60,7 +60,7 @@ async def analyze(request):
     # img_bytes = await (data['file'].read())
     # took out img_bytes
     # img = open_image(BytesIO(img_bytes))
-    img = data["textField"]
+    img = data["reviewText"]
     print("img:", img)
     # prediction = learn.predict(img)[0]
     # add [0] to get pos/neg
