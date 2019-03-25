@@ -33,8 +33,15 @@ function analyze() {
         data: data,
         // success: onSuccess,
         dataType: "json"
-      });
-      return false;
+    });
+    console.log("type:", type)
+    console.log("url:", url)
+    console.log("data:", data)
+    console.log("dataType:", dataType)
+    console.log("fileData:", fileData);
+    console.log("uploadFiles", uploadFiles);
+    console.log("uploadFiles.value:", uploadFiles.value);
+    return false;
 
 
     // xhr.open('POST', `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`, true);
@@ -52,11 +59,10 @@ function analyze() {
     // var fileData = {
     //     "textField": uploadFiles.value
     // };
-    
+
     // // fileData.append('textField', uploadFiles.value);
     // console.log("fileData:", fileData);
     // console.log("uploadFiles", uploadFiles);
     // console.log("uploadFiles.value:", uploadFiles.value);
     // xhr.send(JSON.stringify(fileData));
 }
-
