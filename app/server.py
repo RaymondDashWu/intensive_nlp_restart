@@ -42,7 +42,8 @@ async def setup_learner():
 
 loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
-learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
+learn = loop.run_until_complete(asyncio.gather(*tasks))
+# learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
 
 @app.route('/')
@@ -62,7 +63,7 @@ async def analyze(request):
     img = StringIO(data["textField"])
     print("img:", img)
     # prediction = learn.predict(img)[0]
-    prediction = learn.predict(img)[0]
+    prediction = learn.predict(img)
     print("prediction:", prediction)
     return JSONResponse({'result': str(prediction)})
 
