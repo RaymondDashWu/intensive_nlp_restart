@@ -9,9 +9,9 @@ from fastai import *
 # from fastai.vision import *
 from fastai.text import *
 
-export_file_url = 'https://www.dropbox.com/s/xhnvw0axn6xjbk9/export.pkl?dl=1'
+export_file_url = 'https://www.dropbox.com/s/1mi236a0p2v0lht/fourth.pkl?dl=1'
 # export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_name = 'export.pkl'
+export_file_name = 'fourth.pkl'
 
 classes = ['neg', 'pos']
 path = Path(__file__).parent
