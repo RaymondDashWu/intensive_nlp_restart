@@ -53,13 +53,13 @@ def index(request):
 # @app.route('/analyze', methods=['GET'])
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
-    data = await request.form()
+    data = await request.json()
     #data = await request.args['data']
     print("data:", data)
     # img_bytes = await (data['file'].read())
     # took out img_bytes
     # img = open_image(BytesIO(img_bytes))
-    img = StringIO(data['textField'])
+    img = StringIO(data["textField"])
     # prediction = learn.predict(img)[0]
     prediction = learn.predict(img)
     print("prediction:", prediction)

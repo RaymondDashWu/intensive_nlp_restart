@@ -24,6 +24,7 @@ function analyze() {
     var xhr = new XMLHttpRequest();
     var loc = window.location
     xhr.open('POST', `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onerror = function() {alert (xhr.responseText);}
     xhr.onload = function(e) {
         if (this.readyState === 4) {
@@ -34,10 +35,14 @@ function analyze() {
         el('analyze-button').innerHTML = 'Analyze';
     }
 
-    var fileData = new FormData();
-    fileData.append('textField', uploadFiles.value);
-    console.log("fileData:", fileData);
-    console.log("uploadFiles:", uploadFiles);
-    xhr.send(fileData);
+    var fileData = {
+        "textField": uploadFiles.value
+    };
+    
+    console.log(fileData);
+    // fileData.append('textField', uploadFiles.value);
+    // console.log("fileData:", fileData);
+    // console.log("uploadFiles:", uploadFiles);
+    xhr.send(JSON.stringify(fileData));
 }
 
